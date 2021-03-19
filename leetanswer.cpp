@@ -296,6 +296,7 @@ bool exist(vector<vector<char>>& board, string word) {
       }
   for (int i = 0; i < rows; i++)
     delete[] used_array[i];
+  delete[] used_array;
   return false;
 }
 //测试矩阵中的路径
@@ -381,6 +382,203 @@ void test11()
   cout << hammingWeight(8191) << endl;
 }
 
+//数值的整数次方
+double myPow(double x, int n)
+{
+  if (n == 0)
+    return 1;
+  long long temp_exp = n;
+  double temp_result = 1.0;
+  bool flag = false;
+  if (temp_exp < 0)
+  {
+    flag = true;
+    temp_exp = -temp_exp;
+  }
+  while (temp_exp)
+  {
+    if (temp_exp & 1)
+      temp_result = temp_result * x;
+    x = x * x;
+    temp_exp = temp_exp / 2;
+  }
+  return flag == true ? 1 / temp_result : temp_result;
+}
+//测试数值的整数次方
+void test12()
+{
+  cout << "测试数值的整数次方" << endl;
+  cout << myPow(1.5, 2) << endl;
+}
+
+//打印从1到最大的N位数
+vector<int> printNumbers(int n) {
+  long long num = pow(10, n) - 1;
+  int* result_temp = new int[num];
+  for (long long i = 0; i < num; i++)
+  {
+    result_temp[i] = i + 1;
+  }
+  vector<int> result(result_temp, result_temp + num);
+  delete[] result_temp;
+  return result;
+}
+//测试打印从1到最大的N位数
+void test13()
+{
+  vector<int> ans = printNumbers(3);
+  cout << "测试打印从1到最大的N位数" << endl;
+  cout << ans[ans.size() - 1] << endl;
+}
+//删除链表的节点
+ListNode* deleteNode(ListNode* head, int val) {
+  ListNode* result = head;
+  ListNode* last = head;
+  if (head->val == val)
+    return head->next;
+  else
+    head = head->next;
+  while (head != nullptr)
+  {
+    if (head->val == val)
+    {
+      last->next = head->next;
+      return result;
+    }
+    else
+    {
+      last = head;
+      head = head->next;
+    }
+
+  }
+  return result;
+}
+//测试删除链表的节点
+void test14()
+{
+  ListNode A(1), B(2), C(3), D(4);
+  A.next = &B;
+  B.next = &C;
+  C.next = &D;
+  ListNode* ans = deleteNode(&A, 2);
+  cout << "测试删除链表的节点" << endl;
+  while (ans != nullptr)
+  {
+    cout << ans->val;
+    ans = ans->next;
+  }
+}
+//调整数组顺序使奇数位于偶数前面
+vector<int> exchange(vector<int>& nums)
+{
+  vector<int> single, dual;
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (nums[i] % 2 == 0)
+      dual.push_back(nums[i]);
+    else
+      single.push_back(nums[i]);
+  }
+  vector<int> ans;
+  ans.insert(ans.end(), single.begin(), single.end());
+  ans.insert(ans.end(), dual.begin(), dual.end());
+  return ans;
+}
+
+//测试调整数组顺序使奇数位于偶数前面
+void test15()
+{
+  vector<int> A = { 1,2,3,4,5,6,7,8 };
+  vector<int>ans = exchange(A);
+  cout << "测试调整数组顺序使奇数位于偶数前面" << endl;
+  for (int i = 0; i < ans.size(); i++)
+  {
+    cout << ans[i] << endl;
+  }
+}
+//链表中的倒数第K个节点
+ListNode* getKthFromEnd(ListNode* head, int k)
+{
+  ListNode* result = head;
+  int len = 0;
+  while (head->next != nullptr)
+  {
+    len++;
+    head = head->next;
+  }
+  for (int i = 0; i < len - k + 1; i++)
+  {
+    result = result->next;
+  }
+  return result;
+}
+
+//测试链表中倒数第K个节点
+void test16()
+{
+  ListNode A(1), B(2), C(3), D(4);
+  A.next = &B;
+  B.next = &C;
+  C.next = &D;
+  ListNode* ans = getKthFromEnd(&A, 1);
+  cout << "测试链表中的第K个节点" << endl;
+  cout << ans->val << endl;
+}
+
+//反转链表
+ListNode* reverseList(ListNode* head)
+{
+  ListNode* result = nullptr;
+  ListNode* last = nullptr;
+  ListNode* header = new ListNode(0);
+  header->next = head;
+  while (header->next != nullptr)
+  {
+    result = new ListNode(header->next->val);
+    result->next = last;
+    last = result;
+    header = header->next;
+  }
+  return result;
+}
+//测试反转链表
+void test17()
+{
+  ListNode A(1), B(2), C(3), D(4);
+  A.next = &B;
+  B.next = &C;
+  C.next = &D;
+  ListNode* ans = reverseList(&A);
+  cout << "测试反转链表" << endl;
+  while (ans!=nullptr)
+  {
+    cout << ans->val << endl;
+    ans = ans->next;
+  }
+}
+
+//合并两个排序的链表
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
+{
+  ListNode* header1 = new ListNode(0);
+  header1->next = l1;
+  ListNode* header2 = new ListNode(0);
+  header2->next = l2;
+  ListNode* result  = header1;
+  ListNode* p = nullptr;
+  while (header1->next != nullptr)
+  {
+    while (header2->next != nullptr)
+    {
+      if(header1->next)
+    }
+  }
+}
+
+
+
+
 int main()
 {
   test01();
@@ -394,5 +592,11 @@ int main()
   test09();
   test10();
   test11();
+  test12();
+  test13();
+  test14();
+  test15();
+  test16();
+  test17();
   return 0;
 }
