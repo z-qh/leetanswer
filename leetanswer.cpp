@@ -55,13 +55,13 @@ int bag02(int n, int m, vector<int>w, vector<int>v)
   delete[] F;
   return ans;
 }
-//测试0-1背包问题
+//0-1背包问题
 void test01()
 {
   vector<int> W = { 2,1,3,2 };
   vector<int> V = { 3,2,4,2 };
   int ans = bag01(4, 5, W, V);
-  cout << "测试0-1背包问题：" << endl;
+  cout << "0-1背包问题：" << endl;
   cout << ans << endl;
 }
 
@@ -77,12 +77,12 @@ int findRepeatNumber(vector<int>& nums)
   }
   return nums[len - 1];
 }
-//测试重复的数字
+//重复的数字
 void test02()
 {
   vector<int> A = { 2,2,1,3,6,7,88,14 };
   int ans = findRepeatNumber(A);
-  cout << "测试重复的数字：" << endl;;
+  cout << "重复的数字：" << endl;;
   cout << ans << endl;
 }
 
@@ -111,13 +111,13 @@ bool findNumberIn2DArray(vector<vector<int>>& matrix, int target)
   return false;
 }
 
-//测试二维数组中的查找
+//二维数组中的查找
 void test03()
 {
   vector<vector<int>> A = 
   { {1, 4, 7, 11, 15},{2, 5, 8, 12, 19},{3, 6, 9, 16, 22},{10, 13, 14, 17, 24},{18, 21, 23, 26, 30} };
   bool ans = findNumberIn2DArray(A, 5);
-  cout << "测试二维数组中的查找" << endl;
+  cout << "二维数组中的查找" << endl;
   cout << ans << endl;
 }
 
@@ -137,14 +137,14 @@ vector<int> reversePrint(ListNode* head)
   }
   return result;
 }
-//测试从尾到头打印链表
+//从尾到头打印链表
 void test04()
 {
   ListNode A(1), B(3), C(2);
   A.next = &B;
   B.next = &C;
   vector<int> ans = reversePrint(&A);
-  cout << "测试从尾到头打印链表" << endl;
+  cout << "从尾到头打印链表" << endl;
   for (int i = 0; i < ans.size(); i++)
     cout << ans[i] << endl;
 }
@@ -168,10 +168,10 @@ int fib(int n)
   }
   return FN;
 }
-//测试斐波那契数列
+//斐波那契数列
 void test05()
 {
-  cout << "测试斐波那契数列" << endl;
+  cout << "斐波那契数列" << endl;
   cout << fib(10) << endl;
 }
 
@@ -194,10 +194,10 @@ int numWays(int n)
   }
   return N;
 }
-//测试青蛙跳台阶问题
+//青蛙跳台阶问题
 void test06()
 {
-  cout << "测试青蛙跳台阶问题" << endl;
+  cout << "青蛙跳台阶问题" << endl;
   cout << numWays(10) << endl;
 }
 //旋转数组的最小数字
@@ -216,12 +216,12 @@ int minArray(vector<int>& numbers)
   }
   return numbers[0];
 }
-//测试旋转数组的最小数字
+//旋转数组的最小数字
 void test07()
 {
   vector<int> A = { 3, 4, 5, 1, 2 };
   int ans = minArray(A);
-  cout << "测试旋转数组的最小数字" << endl;
+  cout << "旋转数组的最小数字" << endl;
   cout << ans << endl;
 }
 //矩阵中的路径
@@ -299,13 +299,13 @@ bool exist(vector<vector<char>>& board, string word) {
   delete[] used_array;
   return false;
 }
-//测试矩阵中的路径
+//矩阵中的路径
 void test08()
 {
   vector<vector<char>> board = 
   { {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'} };
   bool ans =  exist(board, "ABCCED");
-  cout << "测试矩阵中的路径" << endl;
+  cout << "矩阵中的路径" << endl;
   cout << ans << endl;
 }
 //剪绳子
@@ -323,10 +323,10 @@ int cuttingRope(int n)
   else
     return pow(3, m);
 }
-//测试剪绳子
+//剪绳子
 void test09()
 {
-  cout << "测试剪绳子" << endl;
+  cout << "剪绳子" << endl;
   cout << cuttingRope(22) << endl;
 }
 
@@ -356,10 +356,10 @@ int cuttingRope2(int n)
   else
     return opt_pow(3, m);
 }
-//测试剪绳子II
+//剪绳子II
 void test10()
 {
-  cout << "测试剪绳子II" << endl;
+  cout << "剪绳子II" << endl;
   cout << cuttingRope2(555) << endl;
 }
 //二进制中1的个数
@@ -375,10 +375,10 @@ int hammingWeight(uint32_t n)
   return bit_count;
 }
 
-//测试二进制中1的个数
+//二进制中1的个数
 void test11()
 {
-  cout << "测试二进制中1的个数" << endl;
+  cout << "二进制中1的个数" << endl;
   cout << hammingWeight(8191) << endl;
 }
 
@@ -404,10 +404,10 @@ double myPow(double x, int n)
   }
   return flag == true ? 1 / temp_result : temp_result;
 }
-//测试数值的整数次方
+//数值的整数次方
 void test12()
 {
-  cout << "测试数值的整数次方" << endl;
+  cout << "数值的整数次方" << endl;
   cout << myPow(1.5, 2) << endl;
 }
 
@@ -423,11 +423,11 @@ vector<int> printNumbers(int n) {
   delete[] result_temp;
   return result;
 }
-//测试打印从1到最大的N位数
+//打印从1到最大的N位数
 void test13()
 {
   vector<int> ans = printNumbers(3);
-  cout << "测试打印从1到最大的N位数" << endl;
+  cout << "打印从1到最大的N位数" << endl;
   cout << ans[ans.size() - 1] << endl;
 }
 //删除链表的节点
@@ -454,7 +454,7 @@ ListNode* deleteNode(ListNode* head, int val) {
   }
   return result;
 }
-//测试删除链表的节点
+//删除链表的节点
 void test14()
 {
   ListNode A(1), B(2), C(3), D(4);
@@ -462,7 +462,7 @@ void test14()
   B.next = &C;
   C.next = &D;
   ListNode* ans = deleteNode(&A, 2);
-  cout << "测试删除链表的节点" << endl;
+  cout << "删除链表的节点" << endl;
   while (ans != nullptr)
   {
     cout << ans->val;
@@ -486,12 +486,12 @@ vector<int> exchange(vector<int>& nums)
   return ans;
 }
 
-//测试调整数组顺序使奇数位于偶数前面
+//调整数组顺序使奇数位于偶数前面
 void test15()
 {
   vector<int> A = { 1,2,3,4,5,6,7,8 };
   vector<int>ans = exchange(A);
-  cout << "测试调整数组顺序使奇数位于偶数前面" << endl;
+  cout << "调整数组顺序使奇数位于偶数前面" << endl;
   for (int i = 0; i < ans.size(); i++)
   {
     cout << ans[i] << endl;
@@ -514,7 +514,7 @@ ListNode* getKthFromEnd(ListNode* head, int k)
   return result;
 }
 
-//测试链表中倒数第K个节点
+//链表中倒数第K个节点
 void test16()
 {
   ListNode A(1), B(2), C(3), D(4);
@@ -522,7 +522,7 @@ void test16()
   B.next = &C;
   C.next = &D;
   ListNode* ans = getKthFromEnd(&A, 1);
-  cout << "测试链表中的第K个节点" << endl;
+  cout << "链表中的第K个节点" << endl;
   cout << ans->val << endl;
 }
 
@@ -542,7 +542,7 @@ ListNode* reverseList(ListNode* head)
   }
   return result;
 }
-//测试反转链表
+//反转链表
 void test17()
 {
   ListNode A(1), B(2), C(3), D(4);
@@ -550,7 +550,7 @@ void test17()
   B.next = &C;
   C.next = &D;
   ListNode* ans = reverseList(&A);
-  cout << "测试反转链表" << endl;
+  cout << "反转链表" << endl;
   while (ans!=nullptr)
   {
     cout << ans->val << endl;
@@ -559,25 +559,192 @@ void test17()
 }
 
 //合并两个排序的链表
-ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
+//ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
+//{
+//  ListNode* header1 = new ListNode(0);
+//  header1->next = l1;
+//  ListNode* header2 = new ListNode(0);
+//  header2->next = l2;
+//  ListNode* result  = header1;
+//  ListNode* p = nullptr;
+//  while (header1->next != nullptr)
+//  {
+//    while (header2->next != nullptr)
+//    {
+//      if(header1->next)
+//    }
+//  }
+//}
+
+//连续子数组的最大和
+int maxSubArray(vector<int>& nums)
 {
-  ListNode* header1 = new ListNode(0);
-  header1->next = l1;
-  ListNode* header2 = new ListNode(0);
-  header2->next = l2;
-  ListNode* result  = header1;
-  ListNode* p = nullptr;
-  while (header1->next != nullptr)
+  int n = nums.size();
+  if (n == 0)
+    return 0;
+  int* F = new int[n];
+  F[0] = nums[0];
+  int a = 0, b = 0;
+  for (int i = 1; i < n; i++)
   {
-    while (header2->next != nullptr)
-    {
-      if(header1->next)
-    }
+    if (F[i - 1] > 0)
+      F[i] = F[i - 1] + nums[i];
+    else
+      F[i] = nums[i];
+  }
+  int max = F[0];
+  for (int i = 0; i <n; i++)
+  {
+    if (max < F[i])
+      max = F[i];
+  }
+  return max;
+}
+
+//连续子数组的最大和
+void test18()
+{
+  vector<int> A = { -2,1,-3,4,-1,2,1,-5,4 };
+  cout << "连续子数组的最大和" << endl;
+  int ans = maxSubArray(A);
+  cout << ans << endl;
+}
+
+//第一个只出现一次的字符
+char firstUniqChar(string s)
+{
+  int n = s.size();
+  if (n == 0)
+    return ' ';
+  
+  for (int i = 0; i < s.size(); i++)
+  {
+    int posi = s.find(s[i]);
+    if (s.find(s[i], posi+1) == -1)
+      return s[i];
+  }
+  return ' ';
+}
+//第一个只出现一次的字符
+void test19()
+{
+  char ans = firstUniqChar("abaccdeff");
+  cout << "第一个只出现一次的字符" << endl;
+  cout << ans << endl;
+}
+//在排序中查找数字出现个数
+int serch(vector<int>& nums, int target)
+{
+  int n = nums.size();
+  if (n == 0)
+    return 0;
+  int count = 0;
+  for (int i = 0; i < n; i++)
+  {
+    if (target == nums[i])
+      count++;
+  }
+  return count;
+}
+
+//在排序中查找数字出现个数
+void test20()
+{
+  vector<int> A = { 5,7,7,8,8,10 };
+  int ans = serch(A, 8);
+  cout << "在排序中查找数字出现个数" << endl;
+  cout << ans << endl;
+}
+
+//0~n中缺失的数字
+int missingNumber(vector<int>& nums)
+{
+  int n = nums.size();
+  for (int i = 0; i < n; i++)
+  {
+    if (nums[i] != i)
+      return i;
+  }
+  return n;
+}
+
+//0~n中缺失的数字
+void test21()
+{
+  vector<int> A = { 0,1,2,3,4,5,7 };
+  int ans = missingNumber(A);
+  cout << "0~n中缺失的数字" << endl;
+  cout << ans << endl;
+}
+
+//和为s的两个数字
+vector<int> twoSum(vector<int>& nums, int target)
+{
+  int n = nums.size();
+  sort(nums.begin(), nums.end());
+  vector<int> ans;
+  int i = 0;
+  int j = n - 1;
+  while(nums[i] + nums[j] != target)
+  {
+    if (nums[i] + nums[j] > target)
+      j--;
+    else
+      i++;
+  }
+  ans.push_back(nums[i]);
+  ans.push_back(nums[j]);
+  return ans;
+}
+
+//和为s的两个数字
+void test22()
+{
+  vector<int> A = { 10,26,30,31,47,60 };
+  vector<int> ans = twoSum(A, 40);
+  cout << "和为s的两个数字" << endl;
+  for (int i = 0; i < ans.size(); i++)
+  {
+    cout << ans[i] << endl;
   }
 }
 
+//和为s的连续正数序列
+vector<vector<int>> findContinuousSequence(int target)
+{
+  vector<vector<int>> ans;
+  vector<int> temp;
+  double n = 0.0;
+  int max = (sqrt(8 * target + 1) - 1) / 2;
+  int flag = 0;
+  for (int m = max; m >= 2; m--)
+  {
+    n = 0.0;
+    n =  ((2.0 * target / m) + 1.0 - m) / 2.0;
+    if (round(n) == n)
+    {
+      temp.clear();
+      for (int i = 0; i < m; i++)
+        temp.push_back(n + i);
+      ans.push_back(temp);
+    }
+  }
+  return ans;
+}
 
-
+//和为s的连续正数序列
+void test23()
+{
+  vector<vector<int>> ans = findContinuousSequence(15);
+  cout << "和为s的连续正数序列" << endl;
+  for (int i = 0; i < ans.size(); i++)
+  {
+    for (int j = 0; j < ans[i].size(); j++)
+    {
+      cout << ans[i][j] << endl;
+    }
+  }
+}
 
 int main()
 {
@@ -598,5 +765,11 @@ int main()
   test15();
   test16();
   test17();
+  test18();
+  test19();
+  test20();
+  test21();
+  test22();
+  test23();
   return 0;
 }
