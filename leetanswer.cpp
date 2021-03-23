@@ -2,6 +2,7 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -746,30 +747,156 @@ void test23()
   }
 }
 
+//翻转单词顺序
+string reverseWords(string s)
+{
+  stringstream ss(s);
+  string str;
+  vector<string> box;
+  if (s == "")
+    return "";
+  while (!ss.eof())
+  {
+    str.clear();
+    ss >> str;
+    if (str == "")
+      continue;
+    box.push_back(str);
+  }
+  if (box.size() == 0)
+    return "";
+  str.clear();
+  for (int i = box.size() - 1; i > 0; i--)
+  {
+    str += box[i];
+    str += " ";
+  }
+  str += box[0];
+  return str;
+}
+//翻转单词顺序
+void test24()
+{
+  string A("    hello world! ");
+  string ans = reverseWords(A);
+  cout << "翻转单词顺序" << endl;
+  cout << ans << endl;
+}
+
+//左旋转字符串
+string reverseLeftWords(string s, int n)
+{
+  stringstream ss;
+  int len = s.size();
+  for (int i = n; i < len; i++)
+  {
+    ss << s[i];
+  }
+  for (int i = 0; i < n; i++)
+  {
+    ss << s[i];
+  }
+  return ss.str();
+}
+
+//左旋转字符串
+void test25()
+{
+  string ans = reverseLeftWords("abcdefg", 2);
+  cout << "左旋转字符串" << endl;
+  cout << ans << endl;
+}
+
+//滑动窗口的最大值
+vector<int> maxSlidingWindow(vector<int>& nums, int k)
+{
+  vector<int> sum;
+  int len = nums.size();
+  if (len == 0 || k == 0)
+    return sum;
+  int temp = 0;
+  for (int i = 0; i < len - k + 1; i++)
+  {
+    temp = nums[i];
+    for (int j = i; j < i + k; j++)
+    {
+      if (temp < nums[j])
+        temp = nums[j];
+    }
+    sum.push_back(temp);
+  }
+  return sum;
+}
+
+//滑动窗口的最大值
+void test26()
+{
+  vector<int> A = { 1,3,-1,-3,5,3,6,7 };
+  vector<int> ans = maxSlidingWindow(A, 3);
+  cout << "滑动窗口的最大值" << endl;
+  for (int i : ans)
+    cout << i << endl;
+}
+
+//扑克牌中的顺子
+bool isStraight(vector<int>& nums)
+{
+  sort(nums.begin(), nums.end());
+  int zero_num = 0;
+  for (int i = 0; i < nums.size() - 1; i++)
+  {
+    if (nums[i] == 0)
+    {
+      zero_num++;
+    }
+    if (nums[i] == nums[i + 1] && nums[i] != 0)
+      return false;
+  }
+  if (zero_num >= 4)
+    return true;
+  int e = nums[nums.size() - 1] - nums[zero_num] - 1 - 5 + zero_num + 2;
+  if (e <= zero_num)
+    return true;
+  else
+    return false;
+}
+
+//扑克牌中的顺子
+void test27()
+{
+  vector<int> A = { 1,0,0,2,5 };
+  bool ans = isStraight(A);
+  cout << ans << endl;
+}
+
 int main()
 {
-  test01();
-  test02();
-  test03();
-  test04();
-  test05();
-  test06();
-  test07();
-  test08();
-  test09();
-  test10();
-  test11();
-  test12();
-  test13();
-  test14();
-  test15();
-  test16();
-  test17();
-  test18();
-  test19();
-  test20();
-  test21();
-  test22();
-  test23();
+  //test01();
+  //test02();
+  //test03();
+  //test04();
+  //test05();
+  //test06();
+  //test07();
+  //test08();
+  //test09();
+  //test10();
+  //test11();
+  //test12();
+  //test13();
+  //test14();
+  //test15();
+  //test16();
+  //test17();
+  //test18();
+  //test19();
+  //test20();
+  //test21();
+  //test22();
+  //test23();
+  //test24();
+  //test25();
+  //test26();
+  test27();
   return 0;
 }
